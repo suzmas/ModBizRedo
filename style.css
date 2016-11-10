@@ -1,0 +1,50 @@
+/* Top10Lang CSS File*/
+
+
+
+.row{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.panel {
+  background-color: #E8E8E8;
+}
+
+.col-sm-12{
+  text-align: center;
+}
+
+.col-sm-8{
+}
+.col-sm-4{
+  text-align: center;
+}
+
+.btn-group-vertical > a{
+margin-bottom: 5px;
+border-radius: 10px !important;
+}
+
+.btn-group-vertical a {
+  padding: 8px;
+}
+
+.med_logo {
+  width: 70px;
+  height: auto;
+}
+
+.small_logo {
+  width: 100px;
+  height: auto;
+}
+
+.xsmall_logo {
+  width: 140px;
+  height: auto;
+}
+
+#u_list {
+  font-size: 17px;
+}
