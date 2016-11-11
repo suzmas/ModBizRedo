@@ -2,6 +2,10 @@
 
 
 
+#jumbo {
+  background: blue;
+}
+
 .row{
   margin-top: 20px;
   margin-bottom: 20px;
@@ -47,4 +51,12 @@ border-radius: 10px !important;
 
 #u_list {
   font-size: 17px;
+}
+
+.carousel_inner {
+  background: none;
+}
+
+#header {
+  font-size: 40px;
 }
