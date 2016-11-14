@@ -37,6 +37,11 @@ body {
 
 /* Portfolio Section Styling */
 
+.row {
+	background-color: white;
+	border-radius: .5em;
+}
+
 .row h2 {
 	font-family: var(--highlightfont);
 	text-align: center;
@@ -45,8 +50,6 @@ body {
 
 .col-section {
 	padding-top: 30px;
-	background-color: white;
-	border-radius: .5em;
 }
 
 /* Style image captions on hover */
@@ -83,6 +86,7 @@ body {
 	background-color: white;
 	opacity: .8;
 	border-radius: 3px;
+	padding: 10px;
 }
 .center {
 	text-align: center;
