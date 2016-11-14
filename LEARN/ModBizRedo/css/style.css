@@ -1,7 +1,7 @@
 /* CSS File for messing w/ Modern Biz template */
 
 /* Font Imports*/
-@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates|Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates|Source+Sans+Pro|Lobster');
 
 :root {
 	/* Color Scheme- "Cool and Calm" by designschool.com */
@@ -33,6 +33,23 @@ body {
 }
 .navbar-brand, .navbar li a {
 	color: white;
+}
+
+.overlay {
+	color: var(--charcoal);
+	position: absolute;
+	z-index: 12;
+	top: 30%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	font-family: 'Lobster', sans-serif;
+	font-size: 10em;
+	letter-spacing: .07em;
+}
+
+.overlay h1 {
+	font-size: .6em;
 }
 
 /* Portfolio Section Styling */
@@ -92,6 +109,16 @@ body {
 	text-align: center;
 }
 
+
+/* general styling classes */
+.opaque {
+	opacity: .4;
+}
+
 .rounded {
 	border-radius: 1.5em;
+}
+
+.special {
+	background-color: var(--whitepink);
 }
