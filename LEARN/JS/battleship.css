@@ -1,0 +1,32 @@
+
+body {
+  font-family: sans-serif;
+}
+
+#start {
+  margin: 20px;
+}
+
+table {
+  margin: 5%;
+}
+
+td {
+  border: 2px solid black;
+  border-radius: 4px;
+  height: 50px;
+  width: 50px;
+
+}
+
+
+.spot {
+  border: 3px solid red;
+}
+.hit {
+  background: red;
+}
+
+.miss {
+  background: black;
+}

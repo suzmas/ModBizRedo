@@ -1,0 +1,34 @@
+
+body {
+  font-family: sans-serif;
+}
+
+#start {
+  margin: 20px;
+}
+
+table {
+  margin: 5%;
+}
+
+td {
+  border: 2px solid black;
+  height: 50px;
+  width: 50px;
+}
+
+#top td {
+  border-top: none;
+}
+
+#bottom td {
+  border-bottom: none;
+}
+
+.first {
+  border-left: none;
+}
+
+.last {
+  border-right: none;
+}
