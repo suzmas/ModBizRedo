@@ -1,32 +1,99 @@
 
+/* Font Imports*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates|Source+Sans+Pro|Lobster');
+
+:root {
+	/* Color Scheme- "Cool and Calm" by designschool.com */
+	--aqua: #6BBAA7; /* main  highlight */
+	--sunshine: #FBA100; /* secondary highlight */
+	--whitepink: #F0F0F0;
+	--lavender: #6C648B; /* bkg */
+	--dustyrose: #B6A19E; /* bkg */
+	--charcoal: #3C3C3C;
+	--terracotta: #945D60;
+  --clean: #DFDCE3;
+	/* Fonts- Montserrat Alternates & Source Sans Pro */
+	--highlightfont: 'Montserrat Alternates', sans-serif;
+	--mainfont: 'Source Sans Pro', sans-serif;
+}
+
+
+/* Body styling */
+
 body {
-  font-family: sans-serif;
+	color: var(--charcoal);
+	background-color: var(--whitepink);
+	font-family: var(--mainfont);
+  align-content: center;
+}
+
+header {
+	text-align: center;
+}
+
+h1 {
+	display: inline-block;
+  margin-top: 40px;
+  font-family: var(--highlightfont);
+  text-align: center;
+	background-color: white;
+	border-radius: 5px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width: 40%;
+	height: auto;
 }
 
 #start {
-  margin: 20px;
+	background-color: var(--dustyrose);
+	color: white;
+	font-size: 16px;
+	border-radius: 10%;
+	padding: 10px;
+	margin-top: 15px;
 }
 
-table {
-  margin: 5%;
+#starter {
+  text-align: center;
+}
+
+#board_stuff {
+	align-items: center;
+}
+
+table #board {
+	margin: auto;
+}
+
+.table {
+  background-color: white;
+  margin: 15%;
+	text-align: center;
+}
+
+.table td {
+   text-align: center;
+}
+
+tbody {
+	text-align: center;
 }
 
 td {
   border: 2px solid black;
-  border-radius: 4px;
   height: 50px;
   width: 50px;
-
 }
 
-
+p .stats {
+	text-align: center;
+}
 .spot {
-  border: 3px solid red;
+  border: 4px solid red;
 }
 .hit {
   background: red;
 }
-
 .miss {
   background: black;
 }

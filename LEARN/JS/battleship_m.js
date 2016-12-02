@@ -17,49 +17,72 @@ var board = [
       [0,0,0,0,0,0,0,0,0,0],
     ];
 
-function startGame() {
-  board = [
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-      ];
+function reset() {
+  board.forEach( function(l) {
+    index = 0;
+    l.forEach( function() {
+      l[index] = 0;
+      index++;
+    });
+    console.log("reset this row to " + l);
+  });
+  torpedoes = 25;
   hits = 0;
   spots = [];
-  torpedoes = 25;
+  placeShips();
 }
 
-for (i = 0; i < 5; i++) {
-  var rrow = Math.floor(Math.random() * (10));
-  var rcol = Math.floor(Math.random() * (10));
-  if (board[rrow][rcol] === 0) {
-     board[rrow][rcol] = ship;
-     if (rrow != 0) {
-     spots.push(String(rrow)+String(rcol))
-   }
-   else { spots.push(String(rcol)) }
-   };
+placeShips();
+
+function checkSpots(row, col) {
+  if ((row + 1 === 10) || (col + 1 === 10) || (col - 1 < 0) || (row - 1 < 0)) { return false }
+
+  // check vert for ships
+  if (board[row-1][col] != 0) { return false }
+  else if (board[row+1][col] != 0) { return false }
+  // check horiz for ships
+  else if (board[row][col-1] != 0) { return false }
+  else if (board[row][col+1] != 0) { return false }
+  // check diag for ships
+  else if (board[row-1][col-1] != 0) { return false }
+  else if (board[row-1][col+1] != 0) { return false }
+  else if (board[row+1][col-1] != 0) { return false }
+  else if (board[row+1][col+1] != 0) { return false }
+  else { return true }
 }
 
 
-// print board
-board.forEach(function(each) {
-  console.log(each);
-});
 
+
+
+function placeShips() {
+  var placed = 0;
+  while (placed <= 5) {
+    var rrow = Math.floor(Math.random() * (10));
+    var rcol = Math.floor(Math.random() * (10));
+    console.log(rrow + " placeships row is this");
+    console.log(rcol + " placeships col is this");
+
+    if (board[rrow][rcol] === 0 && checkSpots(rrow, rcol) === true) {
+      console.log("placing a ship");
+      board[rrow][rcol] = ship;
+      board[rrow+1][rcol] = ship;
+      placed++;
+      if (rrow != 0) {   // don't push 0 in front of single dig pos
+      spots.push(String(rrow)+String(rcol));
+      spots.push(String(rrow+1)+String(rcol));
+    }
+    else { spots.push(String(rcol)) }
+  };
+}
+}
 
 // Game Controllers
 
 function checkHit(pos) {
   var row = Math.floor(pos/10)
   var col = pos%10
-
+  console.log("row " + row + " column " + col + " value is " + board[row][col]);
   if (board[row][col] === 2) {
     alert('already chosen');
     return false;
@@ -76,8 +99,9 @@ function checkHit(pos) {
     console.log('miss') }
 }
 
+
 function checkWin() {
-  if (hits >= 5) { return true }
+  if (hits >= spots.length) { return true }
 }
 
 function endGame() {
@@ -86,66 +110,39 @@ function endGame() {
 }
 
 
-
-
-
-function who() {
-
-  if (turn%2===0) {
-    turn ++;
-    return 'x'}
-  if (turn%2!=0) {
-    turn ++;
-    return 'o'}
-}
-
-function mkMove(choice) {
-
-  if (board[choice] != 0) { return }
-
-  board[choice] = who();
-  if (winYet() === true) { return endGame('win') }
-  if (turn>7) { return endGame('out') }
-}
-
-
-function startGame() {
-  board = [0,0,0,0,0,0,0,0,0];
-  turn = 0;
-  over = false;
-}
-
-// function endGame(why) {
-//   over = true;
-//   if (why === 'win') {
-//     turn--;
-//     return("A win does not a match make " + who())
-//   }
-//   if (why === 'out') {
-//     return("You're all guessed up");
-//   }
+// UGH FINISH THIS ANNOYING CRAP
+// if (row === 9 && col === 0)
+//
+//
+// if (row === 9) {
+//   if (board[(row-1)][col] != 0) { return false }
+//   else if (board[row][col-1] != 0) { return false }
+//   else if (board[row][col+1] != 0) { return false }
+//   else if (board[row-1][col-1] != 0) { return false }
+//   else if (board[row-1][col+1] != 0) { return false }
+//   else { return true }
+// };
+// if (col === 9) {
+//   if (board[(row-1)][col] != 0) { return false }
+//   else if (board[row+1][col] != 0) { return false }
+//   else if (board[row][col-1] != 0) { return false }
+//   else if (board[row-1][col-1] != 0) { return false }
+//   else if (board[row+1][col-1] != 0) { return false }
+//   else { return true }
 // }
-
-// Conditions
-
-function winYet() {
-  if (horiz() || vert() || diag()) {return true}
-}
-
-function horiz() {
-  if (board[0]!=0 && board[0]===board[1] && board[1]===board[2]) {return true}
-  if (board[3]!=0 && board[3]===board[4] && board[4]===board[5]) {return true}
-  if (board[6]!=0 && board[6]===board[7] && board[7]===board[8]) {return true}
-}
-
-function vert() {
-  if (board[0]!=0 && board[0]===board[3] && board[3]===board[6]) {return true}
-  if (board[1]!=0 && board[1]===board[4] && board[4]===board[7]) {return true}
-  if (board[2]!=0 &&  board[2]===board[5] && board[5]===board[8]) {return true}
-}
-
-function diag() {
-  if (board[4] === 0) {return false}
-  if (board[0]===board[4] && board[4]===board[8]) {return true}
-  if (board[2]===board[4] && board[4]===board[6]) {return true}
-}
+// if (row === 0) {
+//   if (board[row+1][col] != 0) { return false }
+//   else if (board[row][col-1] != 0) { return false }
+//   else if (board[row][col+1] != 0) { return false }
+//   else if (board[row+1][col-1] != 0) { return false }
+//   else if (board[row+1][col+1] != 0) { return false }
+//   else { return true }
+// }
+// if (col === 0) {
+//   if (board[(row-1)][col] != 0) { return false }
+//   else if (board[row+1][col] != 0) { return false }
+//   else if (board[row][col+1] != 0) { return false }
+//   else if (board[row-1][col+1] != 0) { return false }
+//   else if (board[row+1][col+1] != 0) { return false }
+//   else { return true }
+// }
