@@ -1,0 +1,19 @@
+/* CSS Color Schemes */
+
+/* schemes from https://designschool.canva.com/blog/website-color-schemes/ */
+
+/*Earthy and Fresh **FAV */
+:base {
+	--terracotta: #945D60;
+	--herb: #626E60;
+	--chili: #AF473C;
+	--charcoal: #3C3C3C;
+}
+
+/*Muted and Minimal*/
+:base {
+	--dusty: #96858F;
+	--lavender: #6D7993;
+	--overcast: #9099A2;
+	--paper: #D5D5D5;
+}

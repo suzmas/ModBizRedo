@@ -1,0 +1,15 @@
+#board {
+    border: 1px solid black;
+    border-spacing: 0;
+    background: blue;
+    height: 300px;
+    width: 300px;
+}
+
+td {
+  border: 1px solid black;
+}
+
+.clicked {
+    background-color: black;
+}

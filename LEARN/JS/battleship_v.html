@@ -10,18 +10,30 @@
   </head>
 
   <body>
+  <div class="container">
     <header><h1>BattleShip</h1></header>
-    <div class="container">
     <div id="starter">
       <input type="button" value="Start New Game" id="start"/>
     </div>
-    <div id="board_stuff" class="container">
-      <p id="stats"></p>
-      <table id="board" class="text-center">
-        <tbody>
-        </tbody>
-      </table>
+
+    <div class="row">
+      <div class="col-md-12">
+        <p id="stats">Torpedoes: 25 Hits: 0 Ships Left: 8</p>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <table id="board">
+          <tbody>
+          </tbody>
+        </table>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+
   </div>
   </body>
 </html>

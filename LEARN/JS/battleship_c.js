@@ -9,13 +9,13 @@ $(document).ready(function redo() {
     tid = 0;
 
     for (i = 0; i < 10; i++) {
-      $("#board").append("<tr></tr>");
+      $("#board:first").append("<tr></tr>");
       for (a = 0; a < 10; a++) {
         $("tr:last").append("<td id=\"" + tid + "\" > </td>");
         tid ++;
       }
     }
-    $("table").addClass(".table");
+    $("#board").addClass(".table");
   });
 
 // change box colors when ya click 'em
